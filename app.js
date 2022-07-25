@@ -52,7 +52,7 @@ const app = Vue.createApp({
         completed: false,
       });
 
-      event.target.value = "";
+      event = "";
       return true;
     },
 
