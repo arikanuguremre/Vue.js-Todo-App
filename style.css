@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap'); 
+.status.free {
+        font-weight: bold;
+        text-align: center;
+        margin: 40px 0;
+      }
+      .status.free img {
+        display: block;
+        width: 100px;
+        margin: 10px auto;
+      }
+      .uncompletedItem {
+        background-color: #F26968;
+        color:white;
+        font-weight: bold;
+      }
+      .completedItem {
+        background-color: #07d97740;
+        font-weight: bold;
+        color:white;
+      }
+
+
+
+
+toggle-1{
+    display: inline-block;
+    margin:0 15px 0 0 ;
+    vertical-align: top;
+		
+}
+.toggle-1_input{
+    display: none;
+		
+}
+.toggle-1_button{
+    border-radius: 10px;
+    position:relative;
+    display: inline-block;
+    font-size:1rem;
+    line-height: 20px;
+    text-transform: uppercase;
+    background-color: #F26968;
+    border: solid 1px #F26968;
+    color:white;
+    width:80px;
+    height:30px;
+    transition: all 1s ease;
+    cursor:pointer;
+
+}
+.toggle-1_button::before{
+    border-radius: 4px;
+    position:absolute;
+    top:6px;
+    left:40px;
+    content: "off"; /* İÇİNE OFF YAZDIRIR*/
+    display: inline-block;
+    height: 20px;
+    padding: 0 3px;
+    background: white;
+    color:#f2395a;
+    transition: all 1s ease;
+		
+}
+.toggle-1_input:checked + .toggle-1_button {
+    background-color: black;
+    border:solid 1px #00b3b4;
+}
+.toggle-1_input:checked + .toggle-1_button::before  {
+    left:5px;
+    content:"on";
+    color:#00b3b4;
+	
+}
+
+
+.specialH3{
+
+    margin-top:15px;
+  text-align:center;
+  font-family:'Luckiest Guy';
+  font-size:3rem;
+   color: #F26968;
+  text-shadow: 3px 3px 0px #e7eef1 , 8px 8px 0px rgba(0,0,0,0.1); 
+
+}
+
+
+.night-mode{
+
+    background-color:#232424 ;
+    color:white;
+}

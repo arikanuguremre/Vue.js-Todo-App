@@ -20,35 +20,27 @@
       crossorigin="anonymous"
     />
 
-    <title>conditions</title>
-    <style>
-      .status.free {
-        font-weight: bold;
-        text-align: center;
-        margin: 40px 0;
-      }
-      .status.free img {
-        display: block;
-        width: 50px;
-        margin: 10px auto;
-      }
-      .uncompletedItem {
-        background-color: #dc354536;
-      }
-      .completedItem {
-        background-color: #19875440;
-      }
-    </style>
+    <title>Todo App</title>
+
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <div id="app">
-      <div class="container">
+      <div :class="addNightModeClass" class="container">
         <div class="row">
-          <div class="col-8 offset-2 p-2">
-            <h3 class="text-center">Todo List</h3>
+          <div class="col-10 m-auto center p-3">
+            <div class="d-flex justify-content-between">
+              <h3 class="text-center mt-5 ms-5 specialH3">Todo List</h3>
+              <label for="toggle1" class="toggle-1">
+                <input @click="nightMode =! nightMode" type="checkbox" id="toggle1" class="toggle-1_input" />
+                <span class="toggle-1_button"></span>
+              </label>
+            </div>
+
             <div class="d-flex justify-content-start mb-4">
-              <input type="text" class="form-control me-2" @keydown.enter="addTodo" />
+              <input type="text" :class="addNightModeClass" class="form-control me-3" @keydown.enter="addTodo" v-model="textFromInput" />
+              <button @click="addTodo2(textFromInput)" type="button" class="btn btn-outline-primary">Ekle</button>
             </div>
 
             <div v-if="todoList.length > 0">

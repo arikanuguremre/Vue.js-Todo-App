@@ -2,6 +2,7 @@ const app = Vue.createApp({
   data() {
     return {
       todoList: [],
+      nightMode: false,
     };
   },
 
@@ -33,6 +34,17 @@ const app = Vue.createApp({
       event.target.value = "";
       return true;
     },
+    addTodo2(event) {
+      this.todoList.push({
+        id: new Date().getTime(),
+        text: event,
+        completed: false,
+      });
+
+      event.target.value = "";
+      return true;
+    },
+
     removeItem(todoItem) {
       this.todoList = this.todoList.filter((todo) => todo !== todoItem);
     },
@@ -44,6 +56,14 @@ const app = Vue.createApp({
     },
     unCompletedItemCount() {
       return this.todoList.filter((t) => !t.completed).length;
+    },
+    addNightModeClass() {
+      if (this.nightMode) {
+        document.body.classList.add("night-mode");
+      } else {
+        document.body.classList.remove("night-mode");
+      }
+      return { "night-mode": this.nightMode };
     },
   },
 });
