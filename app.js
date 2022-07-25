@@ -8,6 +8,7 @@ const app = Vue.createApp({
 
   mounted() {
     this.getTodos();
+    this.getNightModeSettings();
   },
   watch: {
     todoList: {
@@ -16,12 +17,22 @@ const app = Vue.createApp({
       },
       deep: true,
     },
+    nightMode: {
+      handler: function (updatedSettings) {
+        localStorage.setItem("nightModeSettings", JSON.stringify(updatedSettings));
+      },
+    },
   },
 
   methods: {
     getTodos() {
       if (localStorage.getItem("todo_list")) {
         this.todoList = JSON.parse(localStorage.getItem("todo_list"));
+      }
+    },
+    getNightModeSettings() {
+      if (localStorage.getItem("nightModeSettings")) {
+        this.nightMode = JSON.parse(localStorage.getItem("nightModeSettings"));
       }
     },
     addTodo(event) {
